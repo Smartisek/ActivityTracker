@@ -31,7 +31,7 @@ public class DataReader{
     public int getHeartRate() {return heartRate;}
 
     public double getSpeed(){
-        this.speed = (this.distance / this.duration);
+        this.speed = (this.distance / (this.duration/60));
         return speed;
     }
 
