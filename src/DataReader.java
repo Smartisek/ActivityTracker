@@ -13,6 +13,7 @@ public class DataReader{
     public double duration;
     public double distance;
     public int heartRate;
+    public double speed;
 
     public DataReader(String activity, Date date, double duration, double distance, int heartRate) {
         this.activity = activity;
@@ -22,24 +23,16 @@ public class DataReader{
         this.heartRate = heartRate;
     }
 
-    public String getActivity() {
-        return activity;
-    }
+//    Getters, no setters we don't want to set anything
+    public String getActivity() {return activity;}
+    public Date getDate() {return date;}
+    public double getDuration() {return duration;}
+    public double getDistance() {return distance;}
+    public int getHeartRate() {return heartRate;}
 
-    public Date getDate() {
-        return date;
-    }
-
-    public double getDuration() {
-        return duration;
-    }
-
-    public double getDistance() {
-        return distance;
-    }
-
-    public int getHeartRate() {
-        return heartRate;
+    public double getSpeed(){
+        this.speed = (this.distance / this.duration);
+        return speed;
     }
 
     @Override

@@ -24,8 +24,9 @@ public class ActivityData{
                 double distance = Double.parseDouble(tokens[3]);
                 int heartRate = Integer.parseInt(tokens[4]);
 //                System.out.printf("%-20s %10s %5.2f %5.2f %5s %n", activity, date, duration, distance, heartRate);
-                DataReader data1 = new DataReader(activity, date, duration, distance, heartRate);
-                System.out.println(data1.getActivity() + ", " + data1.getDistance());
+                DataReader data = new DataReader(activity, date, duration, distance, heartRate);
+//                System.out.println(data.getActivity() + ", " + data.getDistance());
+                System.out.println(data.getActivity() + " " + data.getSpeed()+ "km/h");
 
             }
         } catch(FileNotFoundException exception){
