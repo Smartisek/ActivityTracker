@@ -6,8 +6,11 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class ActivityData{
+
     public static void main(String[] args) throws FileNotFoundException{
         String csvfilename = "ActivitySheet.csv";
+//        DataList dataList = new DataList();
+        ArrayList<DataReader> dataList = new ArrayList<>();
 
         try(Scanner scanner = new Scanner(new File("ActivitySheet.csv"))){
             if(scanner.hasNextLine()){
@@ -24,16 +27,20 @@ public class ActivityData{
                 double distance = Double.parseDouble(tokens[3]);
                 int heartRate = Integer.parseInt(tokens[4]);
 //                System.out.printf("%-20s %10s %5.2f %5.2f %5s %n", activity, date, duration, distance, heartRate);
-                DataReader data = new DataReader(activity, date, duration, distance, heartRate);
-//                System.out.println(data.getActivity() + ", " + data.getDistance());
-                System.out.println(data.getActivity() + " " + data.getSpeed()+ "km/h");
-
+                 dataList.add(new DataReader(activity, date, duration, distance, heartRate));
             }
         } catch(FileNotFoundException exception){
             System.out.println("FileNotFoundException caught. The file " +csvfilename+ " may not exist." + exception);
         } catch (ParseException e) {
             throw new RuntimeException(e);
         }
+
+        System.out.println(dataList);
+//        System.out.println(dataList.get(1).getSpeed());
+//        for(DataReader datas : dataList){
+//           datas.CheckIntensity();
+//        }
+
     }
 
 
