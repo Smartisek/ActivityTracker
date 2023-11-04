@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a74bf042-8a19-4434-a90e-17711927b7f6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/CaloriesComparator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DataList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ActivityData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ActivityData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DataReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataReader.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -59,26 +62,12 @@
       <workItem from="1698948885949" duration="705000" />
       <workItem from="1699023639724" duration="7999000" />
       <workItem from="1699033683179" duration="2837000" />
-      <workItem from="1699038460514" duration="636000" />
+      <workItem from="1699038460514" duration="3329000" />
+      <workItem from="1699092734856" duration="3031000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/DataReader.java</url>
-          <line>15</line>
-          <properties class="DataReader" method="&lt;init&gt;">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

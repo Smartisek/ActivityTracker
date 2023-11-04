@@ -1,9 +1,6 @@
-
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.Date;
 
-public class DataReader{
+public class DataReader implements Comparable<DataReader>{
     private String activity;
     private Date date;
     private double duration;
@@ -11,7 +8,6 @@ public class DataReader{
     private int heartRate;
     private double speed;
     private double calories;
-
 
     public DataReader(String activity, Date date, double duration, double distance, int heartRate) {
         this.activity = activity;
@@ -27,6 +23,7 @@ public class DataReader{
     public double getDuration() {return duration;}
     public double getDistance() {return distance;}
     public int getHeartRate() {return heartRate;}
+    public double getCalories(){return calories;}
 
     public void setCalories(double calories){ this.calories = calories;}
 
@@ -108,6 +105,12 @@ public class DataReader{
             }
         }
         return "!=intensity";
+    }
+
+//    Override the compareTo method from superclass to get sorted by natural ordering, name, otherwise it would just print hash
+    @Override
+    public int compareTo(DataReader other){
+        return this.activity.compareTo(other.activity);
     }
 
 }
