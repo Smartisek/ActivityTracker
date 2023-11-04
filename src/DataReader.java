@@ -1,3 +1,4 @@
+import java.util.Collections;
 import java.util.Date;
 
 public class DataReader implements Comparable<DataReader>{
@@ -24,7 +25,6 @@ public class DataReader implements Comparable<DataReader>{
     public double getDistance() {return distance;}
     public int getHeartRate() {return heartRate;}
     public double getCalories(){return calories;}
-
     public void setCalories(double calories){ this.calories = calories;}
 
     public double getSpeed(){
