@@ -40,7 +40,7 @@ public class ActivityData{
         } catch (ParseException e) {
             throw new RuntimeException(e);
         }
-        System.out.println("*** Sorted by natural ordering: ***");
+        System.out.println("*** Sorted by natural ordering (activity type): ***");
         Collections.sort(dataList);
         System.out.println(dataList);
 
@@ -48,16 +48,11 @@ public class ActivityData{
         Collections.sort(dataList, new CaloriesComparator());
         System.out.println(dataList);
 
-        System.out.println("*** Sort by date with anonymous inner class ascending: ***");
-        Collections.sort(dataList, new Comparator<DataReader>(){
-            @Override
-            public int compare(DataReader d1, DataReader d2){
-                return d1.getDate().compareTo(d2.getDate());
-            }
-        });
+        System.out.println("*** Sort by date with lambda ascending: ***");
+        dataList.sort((data1, data2) -> data1.getDate().compareTo(data2.getDate()));
         System.out.println(dataList);
 
-        System.out.println("*** Sort by date with lambda descending");
+        System.out.println("*** Sort by date with lambda descending: ***");
         dataList.sort((DataReader data1, DataReader data2) -> data1.getDate().compareTo(data2.getDate())*(-1));
         System.out.println(dataList);
 
@@ -65,7 +60,7 @@ public class ActivityData{
         Collections.sort(dataList, new DurationComparable());
         System.out.println(dataList);
 
-        System.out.println("*** Sort by duration descending");
+        System.out.println("*** Sort by duration descending with anonymous class: ***");
         Collections.sort(dataList, new Comparator<DataReader>() {
             @Override
             public int compare(DataReader data1, DataReader data2) {
@@ -74,7 +69,41 @@ public class ActivityData{
         });
         System.out.println(dataList);
 
-        System.out.println("*** Sort by distance: ***");
+        System.out.println("*** Sort by distance ascending: ***");
+        Collections.sort(dataList, new Comparator<DataReader>() {
+            @Override
+            public int compare(DataReader data1, DataReader data2) {
+                return Double.compare(data1.getDistance(), data2.getDistance());
+            }
+        });
+        System.out.println(dataList);
+
+        System.out.println("*** Sort by distance descending: ***");
+        Collections.sort(dataList, new Comparator<DataReader>() {
+            @Override
+            public int compare(DataReader data1, DataReader data2) {
+                return Double.compare(data1.getDistance(), data2.getDistance())*(-1);
+            }
+        });
+        System.out.println(dataList);
+
+        Comparator<DataReader> dataGetActivity = new Comparator<DataReader>() {
+            public int compare(DataReader data1, DataReader data2){
+                return data1.getActivity().compareTo(data2.getActivity());
+            }
+        };
+        DataReader keyRunning = new DataReader("Running", null, 0, 0, 0);
+
+        for(DataReader data : dataList){
+            int index = Collections.binarySearch(dataList, keyRunning, dataGetActivity);
+            if(index >= 0){
+                System.out.println("Found " + dataList.get(index) + " at index " + index);
+            } else{
+                System.out.println("Not found in the list");
+            }
+        }
+
+
     }
 }
 
