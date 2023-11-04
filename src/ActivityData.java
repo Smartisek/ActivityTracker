@@ -69,9 +69,7 @@ public class ActivityData{
         Collections.sort(dataList, new Comparator<DataReader>() {
             @Override
             public int compare(DataReader data1, DataReader data2) {
-                int IntDuration1 = (int)Math.round(data1.getDuration());
-                int IntDuration2 = (int)Math.round(data2.getDuration());
-                return (IntDuration2 - IntDuration1);
+                return Double.compare(data1.getDuration(), data2.getDuration())*(-1);
             }
         });
         System.out.println(dataList);
