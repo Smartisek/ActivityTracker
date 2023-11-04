@@ -93,22 +93,45 @@ public class ActivityData{
             }
         };
         DataReader keyRunning = new DataReader("Running", null, 0, 0, 0);
-
-        for(DataReader data : dataList){
-            int index = Collections.binarySearch(dataList, keyRunning, dataGetActivity);
-            if(index >= 0){
-                System.out.println("Found " + dataList.get(index) + " at index " + index);
-            } else{
-                System.out.println("Not found in the list");
-            }
+        int index = Collections.binarySearch(dataList, keyRunning, dataGetActivity);
+        if(index >= 0){
+            System.out.println("Found " + dataList.get(index) + " at index " + index);
+        } else{
+            System.out.println("Not found in the list");
         }
+// For each loop to keep counter of how many of each is in the list and checking separate activity,
+// Then for each add its distance to a variable
+        double totalDistanceRun = 0;
+        double totalDistanceSwim = 0;
+        double totalDistanceCycle = 0;
+        double totalCalories = 0;
+        int counterRun = 0;
+        int counterSwim = 0;
+        int counterCycle = 0;
+        int counterTotal = 0;
+        for(DataReader data : dataList){
+            if(data.getActivity().equals("Running")){
+                counterRun++;
+                totalDistanceRun += data.getDistance();
+            } else if(data.getActivity().equals("Swimming")){
+                counterSwim++;
+                totalDistanceSwim += data.getDistance();
+            } else if(data.getActivity().equals("Cycling")){
+                counterCycle++;
+                totalDistanceCycle += data.getDistance();
+            }
+            totalCalories += data.getCalories();
+            counterTotal++;
+        }
+//        Implementing average formulas into single variables
+        double averageDistanceRun = totalDistanceRun/counterRun;
+        double averageDistanceSwim = totalDistanceSwim/counterSwim;
+        double averageDistanceCycle = totalDistanceCycle/counterCycle;
+        double averageCalories = totalCalories/counterTotal;
 
-
+        System.out.println("*** Average distance for running: " + String.format("%.1f", averageDistanceRun) + " ***");
+        System.out.println("*** Average distance for swimming: " + String.format("%.1f", averageDistanceSwim) + " ***");
+        System.out.println("*** Average distance for cycling: " + String.format("%.1f", averageDistanceCycle) + " ***");
+        System.out.println("*** Average calories burned: " + String.format("%.1f", averageCalories) + " kcal ***");
     }
 }
-
-//        System.out.println(dataList);
-//        System.out.println(dataList.get(1).getSpeed());
-//        for(DataReader datas : dataList){
-//           datas.CheckIntensity();
-//        }
