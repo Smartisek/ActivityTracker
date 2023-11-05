@@ -1,4 +1,3 @@
-import java.util.Collections;
 import java.util.Date;
 
 public class DataReader implements Comparable<DataReader>{
@@ -46,7 +45,8 @@ public class DataReader implements Comparable<DataReader>{
                 '}' +"\n";
     }
 
-
+//if statement for each activity and then if for checking its speed and assigning its performance with enum Intensity
+//also implementing our calories formula in this nested ifs
     public String CheckIntensity(){
         if(this.getActivity().equals("Swimming")){
             if(this.getSpeed() <= 0.5){
