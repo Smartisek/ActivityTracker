@@ -12,6 +12,7 @@ public class ActivityData{
         String csvfilename = "activity_data_10.csv"; //Name of the data file
         List<DataReader> dataList = new ArrayList<>(); // Creating new list where all this data will be put in
 //Create a new scanner for data file and if it has a next line go to next line
+//Code for scanner taken from lecturer https://github.com/logued/oop-csv-read-text-file/blob/master/src/main/java/org/example/Main.java
         try(Scanner scanner = new Scanner(new File("activity_data_10.csv"))){
             if(scanner.hasNextLine()){
                 scanner.nextLine();
