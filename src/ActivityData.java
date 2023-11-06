@@ -6,10 +6,6 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.ArrayList;
-import java.util.List;
-
-
 
 public class ActivityData{
     public static void main(String[] args) throws FileNotFoundException{
@@ -126,7 +122,7 @@ public class ActivityData{
             totalCalories += data.getCalories();
             counterTotal++;
         }
-//        Implementing average formulas into single variables
+//Implementing average formulas into single variables
         double averageDistanceRun = totalDistanceRun/counterRun;
         double averageDistanceSwim = totalDistanceSwim/counterSwim;
         double averageDistanceCycle = totalDistanceCycle/counterCycle;
@@ -137,8 +133,8 @@ public class ActivityData{
         System.out.println("*** Average distance for cycling: " + String.format("%.1f", averageDistanceCycle) + " ***");
         System.out.println("*** Average calories burned: " + String.format("%.1f", averageCalories) + " kcal ***");
 
-//Searching through data with conditions 
-        String[] activityKey = {"Running", "Swimming", "Cycling"};
+//Searching through data with conditions
+        String[] activityKey = {ActivityName.Running.toString(), ActivityName.Swimming.toString(), ActivityName.Cycling.toString()};
         double minimalDistance = 5.5;
         System.out.println("*** All data for running: ***");
         for(DataReader data : dataList){

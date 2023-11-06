@@ -48,7 +48,7 @@ public class DataReader implements Comparable<DataReader>{
 //if statement for each activity and then if for checking its speed and assigning its performance with enum Intensity
 //also implementing our calories formula in this nested ifs
     public String CheckIntensity(){
-        if(this.getActivity().equals("Swimming")){
+        if(this.getActivity().equals(ActivityName.Swimming.toString())){
             if(this.getSpeed() <= 0.5){
                 this.setCalories(5*(this.duration));
                return Inensity.VeryLight.toString();
@@ -66,7 +66,7 @@ public class DataReader implements Comparable<DataReader>{
                 return Inensity.VeryVigorous.toString();
             }
         }
-        if(this.getActivity().equals("Running")){
+        if(this.getActivity().equals(ActivityName.Running.toString())){
             if(this.getSpeed() < 4.00){
                 this.setCalories(4.1*(this.duration));
                 return Inensity.VeryLight.toString();
@@ -84,7 +84,7 @@ public class DataReader implements Comparable<DataReader>{
                 return Inensity.VeryVigorous.toString();
             }
         }
-        if(this.getActivity().equals("Cycling")){
+        if(this.getActivity().equals(ActivityName.Cycling.toString())){
             if(this.getSpeed() < 8.00){
                 this.setCalories(2*(this.duration));
                 return Inensity.VeryLight.toString();
