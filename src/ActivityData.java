@@ -137,10 +137,33 @@ public class ActivityData{
         System.out.println("*** Average distance for cycling: " + String.format("%.1f", averageDistanceCycle) + " ***");
         System.out.println("*** Average calories burned: " + String.format("%.1f", averageCalories) + " kcal ***");
 
-//        for(DataReader data : dataList){
-//            if(dataList.contains("Running")){
-//                System.out.println("True");
-//            }
-//        }
+//Searching through data with conditions 
+        String[] activityKey = {"Running", "Swimming", "Cycling"};
+        double minimalDistance = 5.5;
+        System.out.println("*** All data for running: ***");
+        for(DataReader data : dataList){
+            if(data.getActivity().equals(activityKey[0])){
+                System.out.println(data);
+            }
+        }
+        System.out.println("*** Minimal distance: ***");
+        for(DataReader data : dataList){
+            if(data.getDistance() > minimalDistance){
+                System.out.println(data);
+            }
+        }
+        System.out.println("*** Above average calories burned: ***");
+        for(DataReader data : dataList){
+            if(data.getCalories() > averageCalories){
+                System.out.println(data);
+            }
+        }
+
+        System.out.println("*** Above minimum duration");
+        for(DataReader data : dataList){
+            if(data.getDuration() > 40.00){
+                System.out.println(data);
+            }
+        }
     }
 }
