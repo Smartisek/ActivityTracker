@@ -6,10 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a74bf042-8a19-4434-a90e-17711927b7f6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivitySheet.csv" beforeDir="false" afterPath="$PROJECT_DIR$/ActivitySheet.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ActivityData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ActivityData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,10 +66,21 @@
       <workItem from="1699125866080" duration="659000" />
       <workItem from="1699216777167" duration="790000" />
       <workItem from="1699217814878" duration="28000" />
+      <workItem from="1699280021562" duration="1245000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NumberFormatException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

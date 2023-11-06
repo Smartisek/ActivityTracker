@@ -11,10 +11,10 @@ import java.util.Comparator;
 
 public class ActivityData{
     public static void main(String[] args) throws FileNotFoundException{
-        String csvfilename = "ActivitySheet.csv"; //Name of the data file
+        String csvfilename = "activity_data_10.csv"; //Name of the data file
         List<DataReader> dataList = new ArrayList<>(); // Creating new list where all this data will be put in
 //Create a new scanner for data file and if it has a next line go to next line
-        try(Scanner scanner = new Scanner(new File("ActivitySheet.csv"))){
+        try(Scanner scanner = new Scanner(new File("activity_data_10.csv"))){
             if(scanner.hasNextLine()){
                 scanner.nextLine();
             }
