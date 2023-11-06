@@ -92,6 +92,7 @@ public class ActivityData{
 //Key component we want to search, activity, other values do not matter here
 //We did not manage to search all the activities run here with binary search, we had an idea to use for loop but that
 //Just printed the same column just as many times as we have total activities
+//Followed a code from lecturer
         DataReader keyRunning = new DataReader("Running", null, 0, 0, 0);
         int index = Collections.binarySearch(dataList, keyRunning, dataGetActivity);
         if(index >= 0){
