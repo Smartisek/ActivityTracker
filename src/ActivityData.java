@@ -6,6 +6,8 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.ArrayList;
+import java.util.List;
 
 
 
@@ -134,5 +136,11 @@ public class ActivityData{
         System.out.println("*** Average distance for swimming: " + String.format("%.1f", averageDistanceSwim) + " ***");
         System.out.println("*** Average distance for cycling: " + String.format("%.1f", averageDistanceCycle) + " ***");
         System.out.println("*** Average calories burned: " + String.format("%.1f", averageCalories) + " kcal ***");
+
+//        for(DataReader data : dataList){
+//            if(dataList.contains("Running")){
+//                System.out.println("True");
+//            }
+//        }
     }
 }
