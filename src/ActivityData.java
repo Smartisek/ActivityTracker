@@ -22,11 +22,11 @@ public class ActivityData{
                 String [] tokens = line.split(","); //Make every attribute split with ","
                 SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy"); // Making data format for our date data
 //Splitting our data with tokens
-               String activity = tokens[0];
-               Date date = sdf.parse(tokens[1]);
-               double duration = Double.parseDouble(tokens[2]);
-               double distance = Double.parseDouble(tokens[3]);
-               int heartRate = Integer.parseInt(tokens[4]);
+                String activity = tokens[0];
+                Date date = sdf.parse(tokens[1]);
+                double duration = Double.parseDouble(tokens[2]);
+                double distance = Double.parseDouble(tokens[3]);
+                int heartRate = Integer.parseInt(tokens[4]);
 //                System.out.printf("%-20s %10s %5.2f %5.2f %5s %n", activity, date, duration, distance, heartRate);
 // Feeding our list with data from the file by creating a new class that takes in all below
                 dataList.add(new DataReader(activity,date,duration,distance,heartRate));
@@ -36,70 +36,88 @@ public class ActivityData{
         } catch (ParseException e) { //Exception for our date type
             throw new RuntimeException(e);
         }
-        System.out.println("*** Sorted by natural ordering (activity type): ***");
-        Collections.sort(dataList);
-        System.out.println(dataList);
+        Scanner myScanner = new Scanner(System.in);
+        int input = myScanner.nextInt();
 
-        System.out.println("*** Sorted by calories burned descending: ***");
-        Collections.sort(dataList, new CaloriesComparator());
-        System.out.println(dataList);
-
-        System.out.println("*** Sort by date with lambda ascending: ***");
-        dataList.sort((data1, data2) -> data1.getDate().compareTo(data2.getDate()));
-        System.out.println(dataList);
-
-        System.out.println("*** Sort by date with lambda descending: ***");
-        dataList.sort((DataReader data1, DataReader data2) -> data1.getDate().compareTo(data2.getDate())*(-1));
-        System.out.println(dataList);
-
-        System.out.println("*** Sort by duration ascending");
-        Collections.sort(dataList, new DurationComparable());
-        System.out.println(dataList);
-
-        System.out.println("*** Sort by duration descending with anonymous class: ***");
-        Collections.sort(dataList, new Comparator<DataReader>() {
-            @Override
-            public int compare(DataReader data1, DataReader data2) {
-                return Double.compare(data1.getDuration(), data2.getDuration())*(-1);
-            }
-        });
-        System.out.println(dataList);
-
-        System.out.println("*** Sort by distance ascending: ***");
-        Collections.sort(dataList, new Comparator<DataReader>() {
-            @Override
-            public int compare(DataReader data1, DataReader data2) {
-                return Double.compare(data1.getDistance(), data2.getDistance());
-            }
-        });
-        System.out.println(dataList);
-
-        System.out.println("*** Sort by distance descending: ***");
-        Collections.sort(dataList, new Comparator<DataReader>() {
-            @Override
-            public int compare(DataReader data1, DataReader data2) {
-                return Double.compare(data1.getDistance(), data2.getDistance())*(-1);
-            }
-        });
-        System.out.println(dataList);
-
-// Creating a new comparator to be able to use binary search for activity
-        Comparator<DataReader> dataGetActivity = new Comparator<DataReader>() {
-            public int compare(DataReader data1, DataReader data2){
-                return data1.getActivity().compareTo(data2.getActivity());
-            }
-        };
+        switch (input){
+            case 1:
+                System.out.println("*** Sorted by natural ordering (activity type): ***");
+                Collections.sort(dataList);
+                System.out.println(dataList);
+                break;
+            case 2:
+                System.out.println("*** Sorted by calories burned descending: ***");
+                Collections.sort(dataList, new CaloriesComparator());
+                System.out.println(dataList);
+                break;
+            case 3:
+                System.out.println("*** Sort by date with lambda ascending: ***");
+                dataList.sort((data1, data2) -> data1.getDate().compareTo(data2.getDate()));
+                System.out.println(dataList);
+                break;
+            case 4:
+                System.out.println("*** Sort by date with lambda descending: ***");
+                dataList.sort((DataReader data1, DataReader data2) -> data1.getDate().compareTo(data2.getDate())*(-1));
+                System.out.println(dataList);
+                break;
+            case 5:
+                System.out.println("*** Sort by duration ascending");
+                Collections.sort(dataList, new DurationComparable());
+                System.out.println(dataList);
+                break;
+            case 6:
+                System.out.println("*** Sort by duration descending with anonymous class: ***");
+                Collections.sort(dataList, new Comparator<DataReader>() {
+                    @Override
+                    public int compare(DataReader data1, DataReader data2) {
+                        return Double.compare(data1.getDuration(), data2.getDuration())*(-1);
+                    }
+                });
+                System.out.println(dataList);
+                break;
+            case 7:
+                System.out.println("*** Sort by distance ascending: ***");
+                Collections.sort(dataList, new Comparator<DataReader>() {
+                    @Override
+                    public int compare(DataReader data1, DataReader data2) {
+                        return Double.compare(data1.getDistance(), data2.getDistance());
+                    }
+                });
+                System.out.println(dataList);
+                break;
+            case 8:
+                System.out.println("*** Sort by distance descending: ***");
+                Collections.sort(dataList, new Comparator<DataReader>() {
+                    @Override
+                    public int compare(DataReader data1, DataReader data2) {
+                        return Double.compare(data1.getDistance(), data2.getDistance())*(-1);
+                    }
+                });
+                System.out.println(dataList);
+            case 9:
+                // Creating a new comparator to be able to use binary search for activity
+                Comparator<DataReader> dataGetActivity = new Comparator<DataReader>() {
+                    public int compare(DataReader data1, DataReader data2){
+                        return data1.getActivity().compareTo(data2.getActivity());
+                    }
+                };
 //Key component we want to search, activity, other values do not matter here
 //We did not manage to search all the activities run here with binary search, we had an idea to use for loop but that
 //Just printed the same column just as many times as we have total activities
 //Followed a code from lecturer
-        DataReader keyRunning = new DataReader("Running", null, 0, 0, 0);
-        int index = Collections.binarySearch(dataList, keyRunning, dataGetActivity);
-        if(index >= 0){
-            System.out.println("Found " + dataList.get(index) + " at index " + index);
-        } else{
-            System.out.println("Not found in the list");
+                DataReader keyRunning = new DataReader("Running", null, 0, 0, 0);
+                int index = Collections.binarySearch(dataList, keyRunning, dataGetActivity);
+                if(index >= 0){
+                    System.out.println("Found " + dataList.get(index) + " at index " + index);
+                } else{
+                    System.out.println("Not found in the list");
+                }
+                break;
         }
+
+//Rest of the code is not in the interface because if we put in inside switch there was a problem with counting calories
+//This could be done differently but due to not having any more time to restructure code we left it as is
+
 // For each loop to keep counter of how many of each is in the list and checking separate activity,
 // Then for each add its distance to a variable
         double totalDistanceRun = 0;
@@ -135,6 +153,7 @@ public class ActivityData{
         System.out.println("*** Average distance for cycling: " + String.format("%.1f", averageDistanceCycle) + " ***");
         System.out.println("*** Average calories burned: " + String.format("%.1f", averageCalories) + " kcal ***");
 
+        System.out.println("\n" + "\n");
 //Searching through data with conditions
         String[] activityKey = {ActivityName.Running.toString(), ActivityName.Swimming.toString(), ActivityName.Cycling.toString()};
         double minimalDistance = 5.5;
@@ -157,7 +176,7 @@ public class ActivityData{
             }
         }
 
-        System.out.println("*** Above minimum duration");
+        System.out.println("*** Above minimum duration: ***");
         for(DataReader data : dataList){
             if(data.getDuration() > 40.00){
                 System.out.println(data);
