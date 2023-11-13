@@ -106,6 +106,8 @@ public class ActivityData{
 //Just printed the same column just as many times as we have total activities
 //Followed a code from lecturer
                 DataReader keyRunning = new DataReader("Running", null, 0, 0, 0);
+//                sort before searching binary collection.sort(dataList, dataGetActivity);
+                Collections.sort(dataList, dataGetActivity);
                 int index = Collections.binarySearch(dataList, keyRunning, dataGetActivity);
                 if(index >= 0){
                     System.out.println("Found " + dataList.get(index) + " at index " + index);
